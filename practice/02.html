@@ -13,9 +13,21 @@
     <script>
         async function getData() {
            let res= await fetch('https://dummyjson.com/products/1');
-           let data=await res.json();
+           console.log(res);
+           
 
+          try{
+            if(!res.ok){
+            throw new Error("thowing error");
+          }else{
+           let data=await res.json();
            console.log(data);
+          }
+          }catch(error){
+          console.log("catch block ", error.message);
+          
+          }
+           
            
         }
 
