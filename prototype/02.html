@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>prototypal inheritance</h1>
+
+    <!-- script area -->
+
+
+    <script>
+            function student (id,name,age){
+               // console.log(this);
+                
+                this.sid=id;
+                this.sname=name;
+                this.s_age=age;
+               //  console.log(this);
+               console.log("student informstion");
+               
+                 
+            }
+
+            let s1=new student(101,'anil',22);
+            let s2=new student(102,'Gita',23);
+            let s3=new student(103,"Sanket",22);
+            console.log(s3);
+            
+            console.log(s1);
+
+            let k=s1.__proto__;
+             let l=k.__proto__;
+             l.con="india";
+             console.log(l);
+             
+             
+             
+            k.city="Bangalore"
+            console.log(k);
+
+            console.log(s1.city,s1.s_age);
+            console.log(k.city,);
+            
+            
+            
+            
+            
+    </script>
+
+</body>
+</html>

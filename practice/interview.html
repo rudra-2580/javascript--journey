@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking Charge Calculator</title>
+</head>
+<body>
+
+    <h2>Parking Charge Calculator</h2>
+
+    <label>Hours Parked:</label>
+    <input type="number" id="hours" min="0">
+    <button onclick="calculateCharge()">Calculate</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateCharge() {
+            let hours = parseFloat(document.getElementById("hours").value);
+
+            if (isNaN(hours) || hours <= 0) {
+                document.getElementById("result").innerText =
+                    "Please enter a valid number of hours.";
+                return;
+            }
+
+            let charge;
+
+            // Example pricing:
+            // First 3 hours = ₹20
+            // Additional hours = ₹10 per hour
+
+            if (hours <= 3) {
+                charge = 20;
+            } else {
+                charge = 20 + (hours - 3) * 10;
+            }
+
+            document.getElementById("result").innerText =
+                "Parking Charge: ₹" + charge;
+        }
+    </script>
+
+
+
+const now = new Date();
+console.log(now.toLocaleTimeString('en-IN', { timeStyle: 'short' })); 
+// Output: "1:27 PM"
+
+</body>
+</html>

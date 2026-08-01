@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            border: none;
+            border-radius: 5px;
+            height: 30px;
+            width: 80px;
+            margin-left: 100px;
+        }
+       #btn1{
+        background-color: grey;
+       }
+       #btn2{
+        background-color: aqua;
+       }
+       #btn3{
+        background-color: purple;
+       }
+    </style>
+</head>
+<body>
+    
+ <button id="btn1" onclick="colChange('grey')">grey</button>
+ <button id="btn2" onclick="colChange('aqua')">aqua</button>
+ <button id="btn3" onclick="colChange('purple')">purple</button>
+ 
+
+
+
+
+    <!-- script area -->
+<script>
+    let body_tag=document.querySelector('body');
+
+    function colChange(clr){
+        body_tag.style.backgroundColor=clr;
+    }
+</script>
+
+</body>
+</html>

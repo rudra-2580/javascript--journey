@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text{
+            color: red;
+        }
+        .bgc{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>Good Night</h1>
+    
+
+    <!-- script area -->
+    <script>
+        let htag=document.querySelector('h1');
+        console.log(htag.classList);
+        htag.classList.add('text');
+        htag.classList.add('bgc');
+         console.log(htag.classList);
+        htag.classList.remove('text');
+         console.log(htag.classList); 
+        
+    </script>
+</body>
+</html>

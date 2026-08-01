@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+    <style>
+         nav{
+        height: 70px;
+        background-color: black;
+        font-family: Poppins,sans-serif;
+        padding-left: 50px;
+        color: gray;
+        padding-bottom: 10px;
+        
+     }
+     nav ::first-letter{
+        color: orange;
+        font-size: 50px;
+        }
+        .li{
+            background-color: yellow;
+            margin: 4px;
+            border-radius: 5px;
+            height: 35px;
+
+        }
+       
+        .btn{
+            margin-left: 70px;
+        }
+        span{
+            margin-right: 70px;
+        }
+    </style>
+</head>
+<body>
+     <nav>
+     <h1>To_Do_List</h1>
+    </nav>
+    <section class="container-fluid mt-2">
+        <div>
+            <form ><input type="text" id="addtask"> <button  onclick="atask()">AddTask</button></form>
+        </div>
+    </section>
+    <section class="container-fluid mt-3">
+      <div class="col-7">
+        <ul id="ul">
+            
+        </ul>
+      </div>
+    </section>
+
+ 
+
+    <!-- script area -->
+
+    <script>
+
+      
+      let task=[];
+      
+     function atask(){
+        let taskbar=document.getElementById('addtask').value;  
+       task.push(taskbar);
+        display(task);
+      event.preventDefault();
+        // display(task);
+     }
+     
+
+      function display(tast_list){
+        let ultag=document.getElementById('ul');
+
+          let showtask="";
+          if(tast_list.length===0){
+              ultag.innerHTML="Your list is empty";
+              return;
+          }
+          let itemStr=""
+          tast_list.forEach((item,i) => {
+            
+                itemStr+=`<li class="li"><div id="b-div"><span>${item}<span><button class="btn" onclick="deleteItem(${i})">❌</button></div></li>`;
+          
+          ultag.innerHTML=itemStr;
+          }); 
+      }
+
+      function deleteItem(i){
+       
+          task.splice(i,1);
+          display(task);
+      }
+
+      display(task);
+          
+    </script>
+</body>
+</html>

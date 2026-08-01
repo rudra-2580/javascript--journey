@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+
+    <style>
+        body{
+           background-color:rgb(5, 5, 59);
+        }
+        #cour_container {
+           
+            width: 330px;
+           border-radius: 20px;
+            margin: auto;
+            color: white;
+           background-color: rgb(89, 85, 89);
+           height: 400px;
+           
+           
+        }
+
+        .head {
+            height: 30px;
+            text-align: center;
+        }
+
+        #row {
+            padding: px;
+        }
+
+        button {
+            margin-left: 211px;
+            margin: 5px 10px 10px 205px;
+        }
+        .body{
+            padding: 10px;
+        }
+        input{
+            margin-bottom: 10px;
+            
+        }
+        hr{
+            height: 2px;
+            border: none;
+            background-color: rgb(225, 223, 219);
+
+        }
+      p{
+        text-align: center;
+        color: rgb(218, 145, 12);
+        
+      }
+      #course{
+        margin-bottom: 10px;
+      }
+     nav{
+        height: 70px;
+        background-color: black;
+        font-family: Poppins,sans-serif;
+        padding-left: 50px;
+        color: gray;
+        padding-bottom: 10px;
+        
+     }
+     nav ::first-letter{
+        color: orange;
+        font-size: 50px;
+        
+     }
+    </style>
+</head>
+
+<body>
+    <!-- <nav class="navbar bg-body-tertiary " style="box-flex-group: black;" >
+        <div class="container-fluid ">
+            <a class="navbar-brand">Jspiders</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav> -->
+
+    <nav>
+     <h1>Fee Calculate App</h1>
+    </nav>
+
+    <div id="cour_container" class="mt-4">
+        <div class="head">Course Details</div>
+        <hr>
+        <div class="body">
+            <form>
+                <table>
+                    <tr class="trow">
+                        <td><label for="">Select course</label></td>
+                        <td><select id="course" class="mt-2" onchange="totalfee()">
+                                <option value=""> select </option>
+                                <option value="java">JAVA FullStack </option>
+                                <option value="python">Python FullStack</option>
+                                <option value="mern">MERN FullStack</option>
+                            </select></td>
+                    </tr>
+
+
+                    <tr>
+                        <td> <label for="">Total Fees</label></td>
+                        <td><input id="fee" type="text" value="" readonly></td>
+                    </tr>
+
+
+                    <tr>
+                        <td> <label for="">Caste</label></td>
+                        <td> <input type="radio" name="radio" id="cast1">OBC
+                            <input type="radio" name="radio" id="cast2">SEBC
+                            <input type="radio" name="radio" id="cast3">AC
+                            <input type="radio" name="radio" id="cast4">ST
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><label for="">conc fees</label></td>
+                        <td><input type="text" name="" id="confee" readonly></td>
+                    </tr>
+
+
+                    <tr>
+                        <td> <label for="">paid fees</label></td>
+                        <td><input type="text" name="" id="pfee"></td>
+                    </tr>
+
+                     <tr>
+                        <td colspan="2"><button id="btn" class="btn btn-primary">Calculate</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="">Due Fees</label></td>
+                        <td><input type="text" name="" id="dfee" readonly ></td>
+                    </tr>
+
+                  
+                   
+
+
+                </table>
+
+                <p></p>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- script area -->
+    <script>
+        
+        
+        function totalfee() {
+            let course = document.getElementById('course').value;
+            let fee = document.getElementById('fee');
+
+            //alert('working')
+            if (course == "java") {
+                fee.setAttribute('value', 30000);
+                
+            }
+            else if (course == "python") {
+                fee.setAttribute('value', 29000);
+                fees=3000;
+            }
+            else if (course == "mern") {
+                fee.setAttribute('value', 29500);
+                fees=3000;
+            }
+           
+     
+        }
+       
+        
+        
+        let Caste1 = document.querySelector('#cast1');
+        let Caste2 = document.querySelector('#cast2');
+        let Caste3 = document.querySelector('#cast3');
+        let Caste4 = document.querySelector('#cast4');
+
+
+        let consfee=document.getElementById('confee');
+
+        Caste1.addEventListener('change', function () {
+           consfee.setAttribute('value',1000)
+        })
+        Caste2.addEventListener('change', function () {
+           consfee.setAttribute('value',1100)
+        })
+        Caste3.addEventListener('change', function () {
+           consfee.setAttribute('value',1200)
+        })
+        Caste4.addEventListener('change', function () {
+           consfee.setAttribute('value',1500)
+        })
+
+
+        let calbtn=document.getElementById('btn');
+        calbtn.addEventListener('click',function(){
+           let fee = document.getElementById('fee');
+           let consfee=document.getElementById('confee');
+           let paidfee=document.getElementById('pfee');
+           let duefee=document.getElementById('dfee')
+           //console.log("fees =",);
+           let calfee=Number(fee.value)-(Number(consfee.value)+Number(paidfee.value))
+
+           let ptag=document.querySelector('p');
+           
+         if(Number(fee.value)==0){
+              
+              ptag.innerText="(*)select the above details";
+         }else{
+             duefee.setAttribute('value',calfee);
+              ptag.innerText="";
+         }
+            event.preventDefault();
+
+        })
+
+    console.log(document.getElementById('course').value);
+    
+     
+
+    </script>
+</body>
+
+</html>

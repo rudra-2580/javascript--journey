@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> original msg</h1>
+
+    <!-- Script area -->
+     <script>
+        let htag=document.querySelector('h1');
+        setTimeout(()=>{
+            alert("working");
+        },5000)
+       setTimeout(()=>{
+         htag.innerHTML="change msg";
+       },3000)
+     </script>
+</body>
+</html>

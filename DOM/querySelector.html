@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="c-ele">course</h1>
+    <ol>
+        <li class="c-1">HTML courses</li>
+        <li class="c-2">CSS</li>
+    </ol>
+
+    <script>
+        
+        //based on id name 
+let cor=document.querySelector('#c-ele');
+ console.log(cor);
+ // based on class name . It only fetch the first matched data
+ let lists=document.querySelector('.c-1');
+ console.log(lists);
+ // based on html tag
+ let lists_1=document.querySelector('li');
+ console.log(lists_1);
+ //querySelectorAll . tag name
+ let all_list=document.querySelectorAll('li');
+ console.log(all_list);
+ 
+ 
+
+ 
+ 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+    <style>
+        #pro{
+            text-align: center;
+        }
+        button{
+            border: none;
+            background-color: #9d9d90;
+            border-radius: 5px;
+        }
+        nav{
+            display: fixed;
+            height: 50px;
+            background-color: rgb(52, 25, 76);
+            color: whitesmoke;
+        }
+        .span{
+            margin-left: 1050px;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav><h1>🛒Amazone <span class="span">Shop Now</span></h1> </nav>
+    <div class="container-fluid">
+        <div class="row" id="pro">
+            
+        </div>
+    </div>
+  
+
+    <!-- script area -->
+     <script>
+        let obj1={
+        id:101,
+        pName:"Watch",
+        imgurl:"./../DOM/electronics (1).png",
+        price:14000,
+        rating:4.8,
+        qty:1
+        };
+        let obj2 = {
+        id:102,
+        pName:"Iphone",
+        imgurl:"./../DOM/electronics (1).png",
+        price:99999,
+        rating:4.6,
+        qty:1
+    };
+
+    let obj3 = {
+        id:103,
+        pName:"Ipad",
+        imgurl:"./../DOM/electronics (1).png",
+        price:49999,
+        rating:4.5,
+        qty:1
+    };
+
+    let obj4 = {
+        id:104,
+        pName:"Mac",
+        imgurl:"./../DOM/electronics (1).png",
+        price:49500,
+        rating:4.9,
+        qty:1
+    };
+
+    let items=[obj1,obj2,obj3,obj4];
+
+     function displayproducts(products){
+        let eachproduct = "";
+
+        for(let ob of products){
+            eachproduct += `
+                <div class="col-3">
+                    <img src="${ob.imgurl}" class="container-fluid">
+                    <h2>${ob.pName}</h2>
+                    <h4>₹${ob.price}</h4>
+                    <h5>⭐ ${ob.rating}</h5>
+                    <button onclick="decqty(${ob.id})">➖</button>
+                    <span id="qty-${ob.id}">${ob.qty}</span>
+                    <button onclick="incqty(${ob.id})">➕</button>
+                </div>
+            `;
+        }
+
+        document.getElementById('pro').innerHTML = eachproduct;
+    }
+    
+    function decqty(id){
+       let choose_item=items.find(item=>item.id==id)
+       if(choose_item.qty>1){
+        choose_item.qty--;
+       }else{
+        choose_item.qty=1;
+       }
+        displayproducts(items);
+    }
+    function incqty(id){
+       let choose_item=items.find(item=>item.id==id);
+       choose_item.qty++;
+        displayproducts(items);
+       
+    }
+    displayproducts(items);
+    
+     </script>
+</body>
+</html>

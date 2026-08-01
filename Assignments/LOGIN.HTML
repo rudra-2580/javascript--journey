@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+    <style>
+        * {
+            margin: 0;
+        }
+
+        nav {
+            margin-bottom: 100px;
+        }
+
+        nav{
+            height: 50px;
+            background-color: #210e52;
+            color: white;
+        
+           
+        }
+        #show{
+          margin-left: 80%;
+
+        }
+        #hide{
+          margin-left: 40px;  
+        }
+
+        .loginBox {
+            margin: auto;
+            display: grid;
+            height: 250px;
+            width: 400px;
+            border: 2px solid black;
+            padding: 20px;
+
+        }
+        .display{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        FaceBook
+         <button id="show" class="btn btn-info mt-2 ">Show</button><button class="btn btn-light mt-2" id="hide">Hide</button> 
+    </nav>
+    <div class="loginBox ">
+        <form>
+            <div class="input-group mb-3">
+                <div class="input-group-text">
+                    <input id="cb" class="form-check-input mt-0" type="checkbox" value=""
+                        aria-label="Checkbox for following text input">
+                </div>
+                <input id="pw-box" type="password" class="form-control" aria-label="Text input with checkbox">
+            </div>
+        </form>
+        </form>
+    </div>
+
+
+
+    <!-- script area -->
+    <script>
+    let checkbox=document.getElementById('cb');
+    let pwbox=document.getElementById('pw-box');
+    checkbox.addEventListener('change',function(){
+        let current_Type=pwbox.getAttribute('type');
+        //alert(current_Type);
+        if(current_Type=="password"){
+            pwbox.setAttribute('type','text');
+        }
+        else{
+             pwbox.setAttribute('type','password');
+        }
+    })
+    let showbtn=document.getElementById('show');
+    let hidebtn=document.getElementById('hide');
+    let logBox=document.querySelector('.loginBox')
+    hidebtn.addEventListener('click',function(){
+        logBox.classList.add('display')
+    })
+    showbtn.addEventListener('click',function(){
+       logBox.classList.remove('display')
+    })
+    </script>
+</body>
+
+</html>

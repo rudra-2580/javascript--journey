@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../../../CSS_class/bootstrap-5.3.8-dist/css/bootstrap.css">
+    <style>
+        *{
+            margin: 0;
+        }
+        nav{
+
+            background-color: aquamarine;
+        }
+        h1{
+            text-align: center;
+        }
+
+        div{
+            border: 2px solid black;
+            height: 200px;
+            width: 300px;
+            margin: 25px auto;
+            background-color: grey;
+            border-radius: 20px;
+        }
+        h2{
+            padding: 5px 40px;
+            text-align: center;
+            margin: 20px;
+        }
+        button{
+            padding: 7px 10px;
+            margin-left: 38%;
+            margin-top: 20%;
+            border:none;
+            background-color: orange;
+            border-radius: 10px;
+            
+        }
+
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>🎓 JS Counter</h1>
+    </nav>
+
+    <div>
+        <h2>Count:- <span id="span_id"></span></h2>
+        <button class="btn">Click Here</button>
+    </div>
+
+
+    <script>
+        let count=0;
+        let spanSel=document.getElementById('span_id');
+        spanSel.textContent=count
+        function couninc(){
+            count++;
+            spanSel.textContent=count;
+        }
+
+        let b=document.getElementsByClassName('btn');
+        b.addEventListener('click',couninc);
+        
+    </script>
+    
+</body>
+</html>

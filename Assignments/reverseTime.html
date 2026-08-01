@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+    <style>
+         nav{
+            display: flex;
+            height: 60px;
+            background-color:rgb(23, 23, 77);
+            color:rgb(178, 124, 25) ;
+            margin: 0;
+           
+            font-family: Poppins,sans-serif;
+            margin-bottom: 30px;
+            justify-content: space-between;
+
+        }
+        .outerdiv{
+           
+           
+            background-color: #d1e51c;
+            margin-top: 5px;
+            margin-right: 20px;
+            margin-bottom: 5px;
+            width: 120px;
+            text-align: center;
+            border-radius: 10px;
+            
+
+        }
+       .text-div{
+       color: black;
+       }
+       .timer-box{
+        
+            display: inline-block;
+            
+            color: aliceblue;
+            height: 20px;
+            width: 35px;
+            text-align: center;
+            background-color: #640e4f;
+            border-radius: 10px;
+            
+
+           
+           
+        }
+       
+    </style>
+</head>
+<body>
+    <nav>
+       <h1> 🛒 Amazon</h1>
+      
+       <div class="outerdiv"><div class="text-div">Sale Ends In</div>
+       <div class="timer-box" id="hou">10</div>
+       <div class="timer-box" id="min"></div>
+       <div class="timer-box" id="sec"></div>
+    </div>
+    </nav>
+
+
+
+
+
+
+
+    <!-- script Area -->
+     <script>
+         let sec= 60;
+        let min= 59;
+        let hou= 10;
+
+        let hou_div = document.getElementById('hou');
+        let min_div = document.getElementById('min');
+        let sec_div = document.getElementById('sec');
+
+        function revTime() {
+            if (sec >0) {
+                sec--;
+                if (sec == 0) {
+
+                    if (min > 0) {
+                        min--;
+                        if (min ==0) {
+                            hou--;
+                        }
+                    } else {
+                        min=59;
+                    }
+                }
+            } else {
+                sec=60;
+            }
+
+            sec_div.innerText=`${sec}`;
+            min_div.innerText=`${min}`;
+            hou_div.innerText=`${hou}`;
+        }
+
+       setInterval(revTime,1000);
+       
+     </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promise</h1>
+
+
+    <script>
+        let p1= new Promise(function(resolve,reject){
+            let resText=true;
+            if(resText) resolve("data is available");
+            else reject("something wents to wrong");
+        });
+
+
+
+        // if the promise is resolved
+        p1.then((data)=>{
+            console.log(data);// data is available 
+            
+        });
+        // promise is rejected 
+        p1.catch((err)=>{
+            console.log(err);// something wents to wrong
+            
+        })
+        //always run this 
+        p1.finally(()=>{
+            console.log("welcome");
+            
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+
+
+  <style>
+    * {
+      margin: 0;
+    }
+
+    nav {
+      background-color: grey;
+    }
+
+    .card {
+      margin: auto;
+      text-align: center;
+    }
+
+    .nav {
+      background-color: grey;
+      padding: 0;
+      margin: 0%;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar bg-body-tertiary  ">
+    <div class="container-fluid nav">
+      <a class="navbar-brand">🛒 Amazon</a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+  </nav>
+
+  <div class="card mt-4" style="width: 18rem;">
+    <img src="./electronics (1).png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Headphone</h5>
+      <h2>&#8377; 2999.00</h2>
+      <h2>⭐ 4.4</h2>
+      <p class=""><button class="btn" onclick="removeitem()">➖</button> <span id="itemCount"></span> <button class="btn"
+          onclick="additem()">➕</button></p>
+      <a href="#" class="btn btn-warning">Buy Now</a>
+    </div>
+  </div>
+
+
+  <!-- script area -->
+
+  <script>
+    let selEle = document.getElementById('itemCount');
+    let ino = localStorage.getItem('no_ele') ? localStorage.getItem('no_ele') : 1;
+    selEle.textContent = ino;
+
+    function removeitem() {
+      if (ino < 1) return;
+
+      ino--;
+      localStorage.setItem('no_ele', ino);
+      selEle.textContent = localStorage.getItem('no_ele');
+    }
+
+    function additem() {
+      ino++;
+      localStorage.setItem('no_ele', ino);
+      selEle.textContent = localStorage.getItem('no_ele');
+    }
+
+
+  </script>
+</body>
+
+</html>

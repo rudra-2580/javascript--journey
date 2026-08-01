@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+         <h1>Practice</h1>
+<select name="country" id="slt">
+  <option value="India">India</option>
+  <option value="USA">USA</option>
+
+</select>
+     <button id="but">click</button>    
+  <!-- <script src="./01.js"></script> -->
+   <script>
+  
+ let sel=document.getElementById('slt');
+ let c=slt.value;
+ sel.addEventListener('change',(e)=>{
+ // console.log(sel.value);
+ c=e.target.value;
+ })
+ let btn=document.getElementById('but');
+ btn.addEventListener('click',()=>{
+console.log(c);
+ })
+ let d=new Date();
+ d.setHours(10);
+ console.log(d.toLocaleTimeString('en-IN',{timeStyle:"short"}));
+ console.log(d.getHours()+d.getMinutes());
+ 
+ console.log(Number("2")+Number("5"));
+ 
+
+   </script>
+</body>
+</html>

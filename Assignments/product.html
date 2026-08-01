@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+ <style>
+    * {
+      margin: 0;
+    }
+
+    nav {
+      background-color: grey;
+    }
+
+    .card {
+      margin: auto;
+      text-align: center;
+    }
+
+    .nav {
+      background-color: grey;
+      padding: 0;
+      margin: 0%;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar bg-body-tertiary  ">
+    <div class="container-fluid nav">
+      <a class="navbar-brand">🛒 Amazon</a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+  </nav>
+
+  <div class="card mt-4" id="card_div" style="width: 18rem;">
+  
+  </div>
+
+
+  <!-- script area -->
+
+  <script>
+    
+    
+    let obj={pname:"Headohone",price:2999,rating:4.5,imgUrl:"./../DOM/electronics (1).png",q:1}
+     
+   function displayPro(){
+    let card_items=`<img src="${obj.imgUrl}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${obj.pname}</h5>
+      <h2>&#8377; 2999.00</h2>
+      <h2>⭐ ${obj.rating}</h2>
+      <p class=""><button class="btn" id="dec" onclick="remitem()">➖</button> <span id="itemCount">${obj.q}</span> <button class="btn"
+     id="inc" onclick="additem()">➕</button></p>
+      <a href="#" class="btn btn-warning">Buy Now</a>
+    </div>`
+
+    document.querySelector('#card_div').innerHTML=card_items;
+   }
+
+    function remitem(){
+           if(obj.q>1) obj.q--;
+           else obj.q=1;
+           
+            displayPro();
+    }
+
+    function additem(){
+      obj.q++;
+      displayPro();
+    }
+    
+    displayPro();
+  </script>
+</body> 
+
+</html>

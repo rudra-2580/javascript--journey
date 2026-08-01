@@ -1,0 +1,63 @@
+ body{
+           background-color:rgb(5, 5, 59);
+        }
+        #cour_container {
+           
+            width: 330px;
+           border-radius: 20px;
+            margin: auto;
+            color: white;
+           background-color: rgb(89, 85, 89);
+           height: 400px;
+           
+           
+        }
+
+        .head {
+            height: 30px;
+            text-align: center;
+        }
+
+        #row {
+            padding: px;
+        }
+
+        button {
+            margin-left: 211px;
+            margin: 5px 10px 10px 205px;
+        }
+        .body{
+            padding: 10px;
+        }
+        input{
+            margin-bottom: 10px;
+            
+        }
+        hr{
+            height: 2px;
+            border: none;
+            background-color: rgb(225, 223, 219);
+
+        }
+      p{
+        text-align: center;
+        color: rgb(218, 145, 12);
+        
+      }
+      #course{
+        margin-bottom: 10px;
+      }
+     nav{
+        height: 70px;
+        background-color: black;
+        font-family: Poppins,sans-serif;
+        padding-left: 50px;
+        color: gray;
+        padding-bottom: 10px;
+        
+     }
+     nav ::first-letter{
+        color: orange;
+        font-size: 50px;
+        
+     }

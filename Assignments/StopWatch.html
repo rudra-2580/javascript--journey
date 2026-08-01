@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+    <style>
+        body{
+            background-color: #c8c2c2;
+        }
+        .outerdiv {
+             
+            height: 250px;
+            width: 500px;
+           margin: auto;
+          background: linear-gradient(to right,rgb(10, 10, 64),rgb(110, 16, 110),rgb(6, 136, 6));
+           border-radius:50px ;
+           box-shadow: 10px 10px 5px 12px rgb(112, 115, 117);
+        }
+
+        .innerdiv {
+            text-align: center;
+        }
+
+        .timebox {
+            display: inline-block;
+            
+            
+            height: 40px;
+            width: 50px;
+            text-align: center;
+            background-color: #dfe0d2;
+            border-radius: 10px;
+            margin-top: 50px;
+           font-size: 1.5rem;
+        }
+        .innerdiv1{
+            width: 200px;
+            display: flex;
+            justify-content: space-around;
+            margin: auto;
+        }
+        .innerdiv2{
+           display: flex;
+           justify-content: space-around;
+           margin-top: 40px;
+        }
+        hr{
+            height:4px ;
+            border: none;
+           background: linear-gradient(to right,rgb(254, 254, 254),rgb(110, 16, 110),rgb(250, 252, 250));
+        }
+         
+        nav{
+            height: 50px;
+            background-color:rgb(23, 23, 77);
+            color:rgb(178, 124, 25) ;
+            margin: 0;
+            text-align: center;
+            font-family: Poppins,sans-serif;
+            margin-bottom: 30px;
+
+        }
+        .btn{
+            width: 85px;
+          
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+       <h1> STOP WATCH</h1>
+    </nav>
+
+
+    <div class="outerdiv">
+        <div class="innerdiv innerdiv1" >
+            <div class="timebox" id="min">00</div>
+            <div class="timebox" id="sec">00</div>
+            <div class="timebox" id="mil">00</div>
+        </div>
+        <hr>
+        <div class="innerdiv innerdiv2">
+            <button id="startbtn" class="btn btn-success">START</button>
+            <button id="stopbtn" class="btn btn-danger">STOP</button>
+            <button id="restartbtn" class="btn btn-secondary">RESTART</button>
+            <button id="resetbtn" class="btn btn-primary">RESET</button>
+        </div>
+    </div>
+
+
+    <script>
+        let milicount = 0;
+        let seccount = 0;
+        let mincount = 0;
+
+        let min_div = document.getElementById('min');
+        let sec_div = document.getElementById('sec');
+        let mil_div = document.getElementById('mil');
+
+        let start = document.getElementById('startbtn');
+        let stopb = document.getElementById('stopbtn');
+        let restart = document.getElementById('restartbtn');
+        let reset = document.getElementById('resetbtn');
+
+        let temp=true;
+        let interval=null;
+
+        start.addEventListener('click', function () {
+            if(temp)
+           {interval=setInterval(mili_sec,100);temp=false;}
+        });
+        stopb.addEventListener('click', function () {
+            if(!temp)
+            {
+                clearInterval(interval);
+                temp=true;
+            }
+           
+        })
+        
+        restart.addEventListener('click', function () {
+            if(temp=true)
+            {
+                interval=setInterval(mili_sec,100);
+                temp=false;
+            }
+        
+        })
+        reset.addEventListener('click', function () {
+            clearInterval(intervalid);
+             milicount=0;
+            seccount=0;
+            mincount=0;
+            intervalid=null;
+             mil_div.innerText=`${milicount}`;
+            sec_div.innerText=`${seccount}`;
+            min_div.innerText=`${mincount}`;
+           
+            
+        })
+        
+        let intervalid=null;
+
+        function mili_sec() {
+            if (milicount < 10) {
+                milicount++;
+                if (milicount == 10) {
+
+                    if (seccount < 60) {
+                        seccount++;
+                        if (seccount == 60) {
+                            mincount++;
+                        }
+                    } else {
+                        seccount = 0;
+                    }
+                }
+            } else {
+                milicount = 0;
+            }
+
+            mil_div.innerText=`${milicount}`;
+            sec_div.innerText=`${seccount}`;
+            min_div.innerText=`${mincount}`;
+        }
+
+       
+       
+       
+    </script>
+</body>
+
+</html>

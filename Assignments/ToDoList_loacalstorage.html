@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+  <style>
+    body{
+      background-color: #454242;
+    }
+    nav {
+      height: 70px;
+      background-color: black;
+      font-family: Poppins, sans-serif;
+      padding-left: 50px;
+      color: gray;
+      padding-bottom: 10px;
+    }
+
+    nav ::first-letter {
+      color: orange;
+      font-size: 50px;
+    }
+
+    .li {
+      background:linear-gradient(to right,rgb(13, 13, 63),rgb(22, 172, 175),rgb(13, 13, 63));
+      margin-bottom: 5px;
+      border-radius: 5px;
+      color: rgb(249, 247, 247); 
+    }
+
+    .btn {
+       border: 2px solid black; 
+    }
+
+    span {
+      margin-right: 70px;
+    }
+    .del-btn{
+      text-align: right;
+
+    }
+    #b-div{
+      padding-left: 20px;
+    }
+    #addtask{
+      height: 30px;
+      border-radius: 5px;
+      border: none;
+      width: 250px;
+    }
+  </style>
+</head>
+
+<body>
+    <nav>
+      <h1>To_Do_List</h1>
+    </nav>
+  <section class="container-fluid mt-2">
+    <div>
+      <form><input type="text" id="addtask" placeholder="write ur plans"> <button onclick="atask()" class="btn btn-warning">AddTask</button></form>
+    </div>
+  </section>
+  <section class="container-fluid mt-3">
+    <div class="col-7">
+      <ul id="ul">
+
+      </ul>
+    </div>
+  </section>
+
+
+
+  <!-- script area -->
+
+  <script>
+
+
+    let task = localStorage.getItem('localsto') ? JSON.parse(localStorage.getItem('localsto')) : [];
+
+    function atask() {
+      let taskbar = document.getElementById('addtask').value;
+      task.push(taskbar);
+      localStorage.setItem('localsto', JSON.stringify(task));
+      display(task);
+    }
+
+
+    function display(tast_list) {
+      let ultag = document.getElementById('ul');
+      if (tast_list.length === 0) {
+        ultag.innerHTML = "Your list is empty";
+        return;
+      }
+      let itemStr = ""
+      tast_list.forEach((item, i) => {
+
+        itemStr += `<li class="grid li"><div class="row"><div class="col-8" id="b-div"><span>${item}<span></div><div class="col-4 del-btn"><button class="btn" onclick="deleteItem(${i})">&#10006;</button></div></div></li>`;
+
+        ultag.innerHTML = itemStr;
+      });
+    }
+
+    function deleteItem(i) {
+
+      task.splice(i, 1);
+      localStorage.setItem('localsto', JSON.stringify(task))
+      display(task);
+    }
+
+    display(task);
+
+  </script>
+</body>
+
+</html>

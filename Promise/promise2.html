@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promise In Js</h1>
+
+
+
+
+<!-- script area -->
+    <script>
+      let p1=new Promise(function(resolve,reject){
+       let taskdone=true;
+       if(taskdone)resolve("task is done");//fullfilled state
+       else reject("task is not done");//reject state
+      });
+      console.log(p1);
+      
+    </script>
+</body>
+</html>

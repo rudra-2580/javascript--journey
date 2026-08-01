@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Promise In Js</h1>
+
+    <!-- script area -->
+    <script>
+        let p1 = new Promise(function (resolve, reject) {
+            let fetchData = true;
+            if (fetchData) resolve(["red", "blue", "green"]);
+            else reject("something wents to wrong,please try again later");
+        });
+
+        // consuming code
+
+        p1.then(function (data) {
+            console.log(data); //fetchdata=true:-fullfilled data is show 
+           
+        });
+        p1.catch(function (err) {
+            console.log(err);//fetchdata=false:-rejected data is show 
+        });
+        p1.finally(function () {
+            console.log("every time call this");//it will execute always
+
+        })
+
+    </script>
+</body>
+
+</html>

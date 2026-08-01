@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    console.log(this);
+    let myfun=function(){
+        console.log(this);
+        
+    }
+    myfun();
+    
+function greet(){
+    console.log(this);
+    console.log("hiiii");
+    
+    
+}
+let newob=new greet();
+newob.name="rudra";
+console.log(newob);
+
+
+function student(id,name,birthyear){
+    this.id=id;
+    this.name=name;
+    this.birthyear=birthyear;
+    this.calcAge=function(){
+        let d=new Date();
+        let age=d.getFullYear()-this.birthyear;
+        console.log("age="+age);
+        
+    }
+
+}
+
+let s1=new student(101,'geeta',2003);
+console.log(s1);
+s1.calcAge();
+
+
+</script>
+
+</head>
+<body>
+    this keyword;
+</body>
+</html>

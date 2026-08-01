@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Inline html attributes</h1>
+    //1st approch
+    <button onclick="change_tittle()" >click 1st</button>
+
+    //2nd
+   <button id="btn">Click 2nd </button>
+
+    
+   //3rd
+
+   <button id="btt">Click 3rd</button>
+
+
+
+
+    <script>
+        let bt=document.getElementById('btn');
+         bt.onclick=change_tittle;
+
+
+        let but=document.getElementById('btt');
+       but.addEventListener('click',()=>{
+        console.log("hiiiiiiiiiii");
+        
+       });
+        
+        function change_tittle(){
+            document.title='Inline html attributes';
+            console.log("I am clicked");
+        }
+
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Event Object & preventdefault()</h1>
+    <button id="click-button" type="submit">Click here</button>
+    <p></p>
+    <!-- script area -->
+     <script>
+        let display=document.querySelector('p');
+        let btn=document.getElementById('click-button');
+        btn.addEventListener('submit',function(event_object){
+             console.log("submit button");
+            
+            // console.log(event_object);
+            //  display.innerText=`event object is ${event_object}`;
+             event.preventDefault();
+
+        })
+       
+     </script>
+
+</body>
+</html>

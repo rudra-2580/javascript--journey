@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./../bootstrap-5.3.8-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./cssIndex.css">    
+</head>
+
+<body>
+<nav>
+     <h1>Fee Calculate App</h1>
+    </nav>
+
+    <div id="cour_container" class="mt-4">
+        <div class="head">Course Details</div>
+        <hr>
+        <div class="body">
+            <form>
+                <table>
+                    <tr class="trow">
+                        <td><label for="">Select course</label></td>
+                        <td><select id="course" class="mt-2" onchange="totalfee()">
+                                <option value=""> select </option>
+                                <option value="java">JAVA FullStack </option>
+                                <option value="python">Python FullStack</option>
+                                <option value="mern">MERN FullStack</option>
+                            </select></td>
+                    </tr>
+
+
+                    <tr>
+                        <td> <label for="">Total Fees</label></td>
+                        <td><input id="fee" type="text" value="" readonly></td>
+                    </tr>
+
+
+                    <tr>
+                        <td> <label for="">Caste</label></td>
+                        <td> <input type="radio" name="radio" id="cast1">OBC
+                            <input type="radio" name="radio" id="cast2">SEBC
+                            <input type="radio" name="radio" id="cast3">AC
+                            <input type="radio" name="radio" id="cast4">ST
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td><label for="">conc fees</label></td>
+                        <td><input type="text" name="" id="confee" readonly></td>
+                    </tr>
+
+
+                    <tr>
+                        <td> <label for="">paid fees</label></td>
+                        <td><input type="text" name="" id="pfee"></td>
+                    </tr>
+
+                     <tr>
+                        <td colspan="2"><button id="btn" class="btn btn-primary">Calculate</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="">Due Fees</label></td>
+                        <td><input type="text" name="" id="dfee" readonly ></td>
+                    </tr>
+
+                  
+                   
+
+
+                </table>
+
+                <p></p>
+            </form>
+        </div>
+    </div>
+
+<script src="./jsindex.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AJAX-asynchronous javascript and xml</h1>
+
+    <script>
+        // step-1 : create XMLHTTPRequest object
+           let xhr=new XMLHttpRequest();
+
+        //step-2 : create request
+           xhr.open('GET','https://dummyjson.com/products/1',true);
+        
+        //step-3 : send the request
+           xhr.send();
+
+       //step-4 :    Once the request has been sent , it may take some time to load the data.
+       
+       xhr.addEventListener('progress',()=>{
+        console.log("wait for the data");
+        
+       })
+
+       //step-5 : Once the data is loaded then we can do what we need.
+     
+      
+       xhr.addEventListener('load', () => {
+     console.log("json data :",xhr.responseText);
+     console.log("===================================================================================");
+     
+
+    let data = JSON.parse(xhr.responseText);
+    console.log(data);
+});
+       
+
+
+    </script>
+</body>
+</html>
